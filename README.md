@@ -119,7 +119,7 @@ mpirun --version
 If you've exited your container, log back in again. 
 
 ```bash
-singularity shell --writable ubuntu2004/
+singularity shell --writable centos7/
 ```
 
 Now it's time to intstall OpenFOAM.
