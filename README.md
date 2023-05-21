@@ -55,7 +55,7 @@ cd singularity-ce-${VERSION}
 ```
 Compile the SingularityCE source code
 ```bash
-./mconfig && \
+./mconfig --prefix=/shared/singularity && \
 make -C builddir && \
 sudo make -C builddir install
 ```
@@ -79,13 +79,13 @@ Now we will create a sandbox environment where we can modify an Ubuntu 20.04 ima
 
 ```bash
 sudo su
-singularity build --sandbox ubuntu2004 docker://ubuntu:focal
-singularity shell --writable ubuntu2004/
+singularity build --sandbox centos7 library://library/default/centos:7
+singularity shell --writable centos7/
 ```
 You should now see a `Singularity>` prompt, meaning you have entered the container image in writable mode. In your container, execute the following to mkdir the directories to mount our filesystems on.
 
 ```bash
-apt-get update && apt-get upgrade
+yum update && yum upgrade
 mkdir /scratch
 mkdir /shared 
 ```
