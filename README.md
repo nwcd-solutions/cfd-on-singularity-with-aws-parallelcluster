@@ -25,6 +25,42 @@ Follow the [Quick Installation Steps](https://docs.sylabs.io/guides/main/user-gu
 
 **Note: the following steps assume that you install Singularity CE onto the /shared directory.**
 
+Install system dependencies
+```bash
+cd /shared
+# Install basic tools for compiling
+sudo yum groupinstall -y 'Development Tools'
+# Install RPM packages for dependencies
+sudo yum install -y \
+   wget \
+   libseccomp-devel \
+   glib2-devel \
+   squashfs-tools \
+   cryptsetup \
+   runc
+```
+Install Go
+```bash
+export VERSION=1.17.2 OS=linux ARCH=amd64 && \
+wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
+sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
+rm go$VERSION.$OS-$ARCH.tar.gz
+```
+Download SingularityCE from a release
+```bash
+export VERSION=3.10.3 && \
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
+tar -xzf singularity-ce-${VERSION}.tar.gz && \
+cd singularity-ce-${VERSION}
+```
+Compile the SingularityCE source code
+```bash
+./mconfig && \
+make -C builddir && \
+sudo make -C builddir install
+```
+
+
 ## Step 3. Create your own Singularity image
 
 We will start by updating the **singularity.conf** file with the file systems we have configured on AWS ParallelCluster. 
