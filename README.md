@@ -66,7 +66,7 @@ sudo make -C builddir install
 We will start by updating the **singularity.conf** file with the file systems we have configured on AWS ParallelCluster. 
 
 ```bash
-vi /shared/singularity-ce-{$VERSION}/etc/singularity/singularity.conf
+vi /shared/singularity/etc/singularity/singularity.conf
 ```
 
 Add the following lines under the session "BIND PATH: [STRING]"
