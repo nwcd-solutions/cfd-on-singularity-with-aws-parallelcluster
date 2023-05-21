@@ -39,12 +39,19 @@ sudo yum install -y \
    cryptsetup \
    runc
 ```
-Install Go
+Install Go on X86 platform
 ```bash
 export VERSION=1.17.2 OS=linux ARCH=amd64 && \
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
 sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
 rm go$VERSION.$OS-$ARCH.tar.gz
+```
+Install Go on ARM platform
+```bash
+export VERSION=1.17.2 OS=linux ARCH=amd64 && \
+wget https://golang.org/dl/go$VERSION.$OS-$ARCH.tar.gz
+sudo tar -C /usr/local/ -xzvf go$VERSION.$OS-$ARCH.tar.gz
+
 ```
 Download SingularityCE from a release
 ```bash
