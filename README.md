@@ -92,7 +92,8 @@ mkdir /shared
 In the container, execute the following to install all the dependencies on the container image. 
 
 ```bash
-apt-get install -y build-essential flex bison cmake zlib1g-dev libboost-system-dev libboost-thread-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev qt4-dev-tools libqt4-dev libqt4-opengl-dev freeglut3-dev libqtwebkit-dev libscotch-dev libcgal-dev gcc g++ gfortran curl vim cmake wget
+#apt-get install -y build-essential flex bison cmake zlib1g-dev libboost-system-dev libboost-thread-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev qt4-dev-tools libqt4-dev libqt4-opengl-dev freeglut3-dev libqtwebkit-dev libscotch-dev libcgal-dev gcc g++ gfortran curl vim cmake wget
+yum install -y wget
 ```
 
 Now we install the [EFA](https://aws.amazon.com/hpc/efa/) driver. With EFA, High Performance Computing (HPC) applications using the Message Passing Interface (MPI) and Machine Learning (ML) applications using NVIDIA Collective Communications Library (NCCL) can scale to thousands of CPUs or GPUs.
@@ -127,7 +128,7 @@ Now it's time to intstall OpenFOAM.
 
 ```bash
 cd /shared
-wget https://sourceforge.net/projects/openfoam/files/v2012/OpenFOAM-v2012.tgz
+wget https://sourceforge.net/projects/openfoam/files/v2012/OpenFOAM-v2012.tgz --no-check-certificate
 tar -xvzf OpenFOAM-v2012.tgz
 cd /shared/OpenFOAM-v2012
 source /shared/OpenFOAM-v2012/etc/bashrc
