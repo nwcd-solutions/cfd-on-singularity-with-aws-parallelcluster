@@ -48,7 +48,7 @@ rm go$VERSION.$OS-$ARCH.tar.gz
 ```
 Install Go on ARM platform
 ```bash
-export VERSION=1.17.2 OS=linux ARCH=amd64 && \
+export VERSION=1.17.2 OS=linux ARCH=arm64 && \
 wget https://golang.org/dl/go$VERSION.$OS-$ARCH.tar.gz
 sudo tar -C /usr/local/ -xzvf go$VERSION.$OS-$ARCH.tar.gz
 
